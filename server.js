@@ -3,14 +3,7 @@ const app = express();
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const cors = require('cors')
-app.use(cors(
-    // {
-    //     "origin": "",
-    //     methods:['GET,POST'],
-    //     credentials:true,
-
-    // }
-))
+app.use(cors())
 const userRegister = require('./routes/userRegister')
 const userLogin = require('./routes/userLogin')
 
@@ -26,6 +19,9 @@ mongoose.connect(process.env.MONGO_URL).then(() => {
 app.get('/', (req, res) => {
     res.send('api running')
 })
+
+
+// routes
 
 app.use(userRegister)
 app.use(userLogin)
