@@ -17,6 +17,12 @@ const ExpensesSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    createdDate: {
+      type: String,
+      default: () => {
+        return new Date().toLocaleDateString();
+      },
+    },
   },
   {
     timestamps: {
